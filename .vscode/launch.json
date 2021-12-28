@@ -30,9 +30,9 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "/home/luc/ProjetAlgoDuTexte",
+      "cwd": "/home/luc/ProjetAlgoTexte/ProjetAlgoTEXTEFINAL",
       "environment": [],
-      "program": "/home/luc/ProjetAlgoDuTexte/build/Debug/outDebug",
+      "program": "/home/luc/ProjetAlgoTexte/ProjetAlgoTEXTEFINAL/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
