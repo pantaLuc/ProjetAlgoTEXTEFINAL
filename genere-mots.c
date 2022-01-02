@@ -3,8 +3,59 @@
 #include<time.h>
 #include<string.h>
 #include <time.h>
-#include "genere-texte.h"
+#include "genere-mots.h"
 
+int main() {
+
+    int nbr_mot, lon_min, lon_max, taille_alphabet; 
+
+    printf("Saisissez la nombre de mot à générer:\t");
+    scanf("%d", &nbr_mot);
+    printf("\nSaisissez la longueur minimale:\t");
+    scanf("%d", &lon_min);
+    printf("\nSaisissez la longueur maximale:\t");
+    scanf("%d", &lon_max);
+    printf("\nSaisissez la taille de l'alphabet:\t");
+    scanf("%d", &taille_alphabet);
+
+   genere_mots(nbr_mot, lon_min, lon_max, taille_alphabet);
+
+    return 0;
+}
+void genere_texte( int taille_texte, int tailleAlphabet)
+{
+    int deplacement;
+    char *alphabet;
+
+     // check if our alphabet is free 
+    if( tailleAlphabet == 0) {
+        printf(" Alphabet est vide \n");
+    } else {
+
+        // construction de l'alphabet
+        alphabet  = (char*)malloc(sizeof(char)*tailleAlphabet);
+
+        deplacement = 0;
+        while (deplacement < tailleAlphabet)
+        {
+            alphabet[deplacement] = (char)(97 + deplacement);
+            deplacement += 1;
+        }
+       
+        // génération du texte 
+        srand((unsigned int) (time(NULL)));
+        int indice = 0 ;
+       while ( indice <taille_texte )
+       {
+         printf("%c", alphabet[rand() % tailleAlphabet]);
+         indice+=1;  
+       }
+       
+        
+       
+        free(alphabet);
+    }
+}
 void genere_mots(int nbr_mot, int lon_min, int lon_max, int taille_alphabet)
 {
    clock_t start_t, end_t, total_t;

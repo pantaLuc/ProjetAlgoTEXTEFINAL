@@ -12,7 +12,19 @@ Luc Panta
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
+#include "genere-texte.h"
 
+
+int main(){
+    int taille_texte,tailleAlphabet;
+    printf("Entrez la longueur de Texte Voulu:\t");
+    scanf("%d", &taille_texte);
+    printf("\nSaisissez la taille de l'alphabet:\t");
+    scanf("%d", &tailleAlphabet);
+    printf("\n");
+    genere_texte(taille_texte, tailleAlphabet);
+    return 0;
+}
 void genere_texte( int taille_texte, int tailleAlphabet)
 {
     int deplacement;
