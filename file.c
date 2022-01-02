@@ -12,10 +12,10 @@
    --------------------------------------------------------------------- */
 File *init()
 {
-    ElementFile *nouveau = malloc(sizeof(*nouveau));
-    nouveau->suivant = NULL;
+    File *file = malloc(sizeof(*file));
+    file->premier = NULL;
 
-    return nouveau;
+    return file;
 }
 
 /*  La fonction d'enfilage ajoute un élément à la file.
@@ -52,14 +52,11 @@ void enfiler(File *file, int nouveauNBR)
     }
 }
 
-/* ---------------------------------------------------------------------
-   fifoGet()
-   ---------------------------------------------------------------------
-   Role : get first element from fifo
-   ---------------------------------------------------------------------
-   fifo: Fifo
-   returns first element
-   --------------------------------------------------------------------- */
+/* Le défilage ressemble étrangement au dépilage. 
+    Étant donné qu'on possède un pointeur vers le premier élément de la file, 
+            il nous suffit de l'enlever et de renvoyer sa valeur.
+
+ */
 int defiler(File *file)
 {
     if (file == NULL)
@@ -71,25 +68,22 @@ int defiler(File *file)
 
     if (file->premier != NULL)
     {
-        ElementFile *outElement = fifo->first;
+        ElementFile *elementDefile = file->premier;
 
-        s = outElement->element;
-        fifo->first = outElement->next;
-        free(outElement);
+        nombreFile= elementDefile->nombre;
+        file->premier = elementDefile->suivant;
+        free(elementDefile);
     }
 
-    return s;
+    return nombreFile;
 }
 
-/* ---------------------------------------------------------------------
-   fifoEmpty()
-   ---------------------------------------------------------------------
-   Role : check if fifo is empty
-   ---------------------------------------------------------------------
-   fifo: Fifo
-   returns 1 if fifo is empty, 0 else
-   --------------------------------------------------------------------- */
-int fifoEmpty(Fifo fifo){
-    if(fifo.first == NULL) return 1;
+/*La maniere la plus simple de savoir si notre file est vide de connaitre 
+ Le contenu du premier element 
+
+ */
+
+int estVideFile(File file){        
+    if(file.premier == NULL) return 1;
     else return 0;
 }
