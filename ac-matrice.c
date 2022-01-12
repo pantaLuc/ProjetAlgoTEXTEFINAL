@@ -11,15 +11,15 @@
 #define MAN() fprintf(stderr, "SYNTAX: %s <words file> <text file>\n", argv[0])
 
 int main(int argc, char **argv) {
-    clock_t start_t, end_t, total_t;
-
-   start_t = clock();
+   clock_t start_t, end_t, total_t;
+    start_t = clock();
 
     if (argc != 3) {
         fprintf(stderr, "Not permitted, wrong number of arguments\n");
         MAN();
         exit(EPERM);
     }
+    
     char *wfile = argv[1];
     char *tfile = argv[2];
     
@@ -75,5 +75,5 @@ int main(int argc, char **argv) {
     total_t = (end_t - start_t);
     double time_taken = ((double) total_t)/CLOCKS_PER_SEC;
     printf("Temps d' execution mis Par  CPU: %f \n", time_taken);
-    
+    return 0;
 }
