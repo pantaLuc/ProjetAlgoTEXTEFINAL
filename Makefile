@@ -13,7 +13,6 @@ ac-hashage: hash.h hash.c file.h file.c ac-hashage.c
 	$(CC)  hash.h hash.c file.h file.c ac-hashage.c -o ac-hashage
 
 ac-matrice: fAcMatrice.h fAcMatrice.c file.h file.c ac-matrice.c
-	$(CC) fAcMatrice.h fAcMatrice.h file.h file.c ac-matrice.c -o ac-matrice
-
+	$(CC) fAcMatrice.h fAcMatrice.c file.h  file.c ac-matrice.c -o ac-matrice 
 clean:
 	rm *.o final
