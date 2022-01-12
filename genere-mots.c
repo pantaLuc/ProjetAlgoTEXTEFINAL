@@ -27,7 +27,7 @@ void genere_texte( int taille_texte, int tailleAlphabet)
     int deplacement;
     char *alphabet;
 
-     // check if our alphabet is free 
+    
     if( tailleAlphabet == 0) {
         printf(" Alphabet est vide \n");
     } else {
@@ -79,9 +79,10 @@ void genere_mots(int nbr_mot, int lon_min, int lon_max, int taille_alphabet)
 
     
     end_t = clock();
-    printf("temps execution du programme , end_t = %ld\n", end_t);
-    total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-     printf("Temps d' execution mis Par  CPU: %ld\n", total_t  );
+    printf("temps  fin d' execution , end_t = %ld\n", end_t);
+    total_t = (end_t - start_t);
+    double time_taken = ((double) total_t)/CLOCKS_PER_SEC;
+    printf("Temps d' execution mis Par  CPU: %f \n", time_taken);
    
 }
 

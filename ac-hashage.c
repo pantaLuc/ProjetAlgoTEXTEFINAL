@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 #include "hash.h"
 
 
@@ -13,6 +14,9 @@
 
 
 int main(int argc, char **argv) {
+    clock_t start_t, end_t, total_t;
+   start_t = clock();
+
     if (argc != 3) {
         fprintf(stderr, "Not permitted, wrong number of arguments\n");
         MAN();
@@ -68,5 +72,11 @@ int main(int argc, char **argv) {
     //search words
     //acSearch(trie,text);
     printf ("%d\n", i);
+    end_t = clock();
+    printf("temps  fin d' execution , end_t = %ld\n", end_t);
+    total_t = (end_t - start_t);
+    double time_taken = ((double) total_t)/CLOCKS_PER_SEC;
+    printf("Temps d' execution mis Par  CPU: %f \n", time_taken);
+    
     
 }

@@ -12,6 +12,7 @@ Luc Panta
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
+#include <time.h>
 #include "genere-texte.h"
 
 
@@ -30,7 +31,10 @@ void genere_texte( int taille_texte, int tailleAlphabet)
     int deplacement;
     char *alphabet;
 
-     // check if our alphabet is free 
+    clock_t start_t, end_t, total_t;
+   int i;
+
+   start_t = clock();
     if( tailleAlphabet == 0) {
         printf(" Alphabet est vide \n");
     } else {
@@ -58,20 +62,11 @@ void genere_texte( int taille_texte, int tailleAlphabet)
        
         free(alphabet);
     }
+
+    end_t = clock();
+    printf("temps  fin d' execution , end_t = %ld\n", end_t);
+    total_t = (end_t - start_t);
+    double time_taken = ((double) total_t)/CLOCKS_PER_SEC;
+    printf("Temps d' execution mis Par  CPU: %f \n", time_taken);
 }
 
-/*
-int main() {
-
-    int taille_texte,tailleAlphabet;
-
-    printf("Entrez la longueur de Texte Voulu:\t");
-    scanf("%d", &taille_texte);
-    printf("\nSaisissez la taille de l'alphabet:\t");
-    scanf("%d", &tailleAlphabet);
-
-
-    printf("\n");
-    genere_texte(taille_texte, tailleAlphabet);
-    return 0;
-}*/
